@@ -4,35 +4,33 @@ export default function HeroContent() {
       <div className="text-left">
         <div
           className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 backdrop-blur-sm mb-4 relative"
-          style={{
-            filter: "url(#glass-effect)",
-          }}
+          style={{ filter: "url(#glass-effect)" }}
         >
           <div className="absolute top-0 left-1 right-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-full" />
-          <span className="text-white/90 text-xs font-light relative z-10">Новые шейдеры Paper Design</span>
+          <span className="text-white/90 text-xs font-light relative z-10">Шьём в России с 2022 года · 4 200 довольных хвостов</span>
         </div>
 
-        {/* Main Heading */}
         <h1 className="text-5xl md:text-6xl md:leading-16 tracking-tight font-light text-white mb-4">
-          <span className="font-medium italic">Красивые</span> шейдеры
+          <span className="font-medium italic">Одежда</span> для животных,
           <br />
-          <span className="font-light tracking-tight text-white">и эффекты</span>
+          <span className="font-light tracking-tight text-white">в которой им тепло</span>
         </h1>
 
-        {/* Description */}
         <p className="text-xs font-light text-white/70 mb-4 leading-relaxed">
-          Создавайте впечатляющие визуальные эффекты с передовой технологией шейдеров. Интерактивное освещение,
-          плавные анимации и красивые эффекты, реагирующие на каждое движение.
+          Комбинезоны, свитера, дождевики и обувь. Безопасные ткани, подбор по размеру для 15 пород и примерка дома с возвратом за 7 дней.
         </p>
 
-        {/* Buttons */}
         <div className="flex items-center gap-4 flex-wrap">
-          <button className="px-8 py-3 rounded-full bg-transparent border border-white/30 text-white font-normal text-xs transition-all duration-200 hover:bg-white/10 hover:border-white/50 cursor-pointer">
-            Тарифы
-          </button>
-          <button className="px-8 py-3 rounded-full bg-white text-black font-normal text-xs transition-all duration-200 hover:bg-white/90 cursor-pointer">
-            Начать
-          </button>
+          <a href="#catalog">
+            <button className="px-8 py-3 rounded-full bg-white text-black font-normal text-xs transition-all duration-200 hover:bg-white/90 cursor-pointer">
+              Смотреть каталог
+            </button>
+          </a>
+          <a href="#size-guide">
+            <button className="px-8 py-3 rounded-full bg-transparent border border-white/30 text-white font-normal text-xs transition-all duration-200 hover:bg-white/10 hover:border-white/50 cursor-pointer">
+              Таблица размеров
+            </button>
+          </a>
         </div>
       </div>
     </main>
