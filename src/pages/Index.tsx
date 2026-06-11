@@ -172,9 +172,14 @@ const Index = () => {
           <h2 className="text-3xl font-light text-white mb-4">
             Мы начали шить, потому что нашли на улице замёрзшего щенка
           </h2>
-          <p className="text-white/60 text-sm leading-relaxed">
+          <p className="text-white/60 text-sm leading-relaxed mb-6">
             Шьём в России с 2022 года. 4 200 довольных хвостов.
           </p>
+          <div className="rounded-2xl bg-white/5 border border-white/10 p-6 text-left">
+            <p className="text-white/70 text-sm leading-relaxed">
+              Меня зовут <span className="text-white font-medium">Александр</span>, я ученик 9 класса, сделал этот сайт в рамках проекта по информатике. Сам люблю животных, у меня живёт пёс по кличке <span className="text-orange-400 font-medium">Рекс</span>. Идея продавать одежду для питомцев родилась, когда я заметил, как сложно найти удобные и недорогие вещи для своего любимца. На этом сайте вы можете посмотреть каталог, выбрать размер и связаться со мной.
+            </p>
+          </div>
         </div>
       </section>
 
