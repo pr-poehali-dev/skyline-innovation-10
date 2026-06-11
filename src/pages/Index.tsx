@@ -3,7 +3,9 @@ import ShaderBackground from "@/components/ShaderBackground"
 import HeroContent from "@/components/HeroContent"
 import PulsingCircle from "@/components/PulsingCircle"
 import Header from "@/components/Header"
+import CartDrawer from "@/components/CartDrawer"
 import Icon from "@/components/ui/icon"
+import { useCart } from "@/context/CartContext"
 
 const catalog = [
   {
@@ -47,17 +49,30 @@ const sizeGuide = [
 const Index = () => {
   const [email, setEmail] = useState("")
   const [subscribed, setSubscribed] = useState(false)
+  const [cartOpen, setCartOpen] = useState(false)
+  const { addItem, toast } = useCart()
 
   const handleSubscribe = () => {
     if (email.trim()) setSubscribed(true)
   }
 
+  const priceToNum = (price: string) => parseInt(price.replace(/\D/g, ""))
+
   return (
     <div className="bg-[#0a0a0a] text-white">
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
+
+      {/* Toast */}
+      {toast && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] bg-orange-700 text-white text-sm px-5 py-3 rounded-full shadow-lg animate-fade-in">
+          {toast}
+        </div>
+      )}
+
       {/* HERO SECTION */}
       <div className="relative h-screen min-h-[600px]">
         <ShaderBackground>
-          <Header />
+          <Header onCartOpen={() => setCartOpen(true)} />
           <HeroContent />
           <PulsingCircle />
         </ShaderBackground>
@@ -114,7 +129,10 @@ const Index = () => {
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-lg font-semibold text-orange-400">{p.price}</span>
-                          <button className="px-4 py-2 rounded-full bg-orange-700/80 hover:bg-orange-600 text-white text-xs transition-all duration-200 cursor-pointer">
+                          <button
+                            onClick={() => addItem({ id: p.id, name: p.name, price: p.price, priceNum: priceToNum(p.price), img: p.img })}
+                            className="px-4 py-2 rounded-full bg-orange-700/80 hover:bg-orange-600 text-white text-xs transition-all duration-200 cursor-pointer"
+                          >
                             В корзину
                           </button>
                         </div>
