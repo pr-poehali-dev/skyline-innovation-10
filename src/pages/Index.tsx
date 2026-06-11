@@ -1,3 +1,4 @@
+import { useState } from "react"
 import ShaderBackground from "@/components/ShaderBackground"
 import HeroContent from "@/components/HeroContent"
 import PulsingCircle from "@/components/PulsingCircle"
@@ -44,6 +45,13 @@ const sizeGuide = [
 ]
 
 const Index = () => {
+  const [email, setEmail] = useState("")
+  const [subscribed, setSubscribed] = useState(false)
+
+  const handleSubscribe = () => {
+    if (email.trim()) setSubscribed(true)
+  }
+
   return (
     <div className="bg-[#0a0a0a] text-white">
       {/* HERO SECTION */}
@@ -176,16 +184,27 @@ const Index = () => {
         <div className="max-w-md mx-auto text-center">
           <h2 className="text-2xl font-light text-white mb-2">Скидка 10% за подписку</h2>
           <p className="text-xs text-white/40 mb-6">Никакого спама, только распродажи</p>
-          <div className="flex gap-2">
-            <input
-              type="email"
-              placeholder="Ваш e-mail"
-              className="flex-1 px-4 py-3 rounded-full bg-white/10 border border-white/20 text-white text-sm placeholder:text-white/40 outline-none focus:border-orange-500/50 transition-colors"
-            />
-            <button className="px-6 py-3 rounded-full bg-orange-700 hover:bg-orange-600 text-white text-sm transition-all duration-200 cursor-pointer whitespace-nowrap">
-              Забрать скидку
-            </button>
-          </div>
+          {subscribed ? (
+            <div className="rounded-2xl bg-orange-500/15 border border-orange-500/40 px-6 py-5">
+              <div className="text-3xl mb-2">🎉</div>
+              <p className="text-orange-300 font-semibold text-lg mb-1">Вы выиграли скидку 10%!</p>
+              <p className="text-white/60 text-sm">Промокод отправлен на <span className="text-white">{email}</span>. Используйте его при следующем заказе.</p>
+            </div>
+          ) : (
+            <div className="flex gap-2">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
+                placeholder="Ваш e-mail"
+                className="flex-1 px-4 py-3 rounded-full bg-white/10 border border-white/20 text-white text-sm placeholder:text-white/40 outline-none focus:border-orange-500/50 transition-colors"
+              />
+              <button onClick={handleSubscribe} className="px-6 py-3 rounded-full bg-orange-700 hover:bg-orange-600 text-white text-sm transition-all duration-200 cursor-pointer whitespace-nowrap">
+                Забрать скидку
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
