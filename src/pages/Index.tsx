@@ -182,27 +182,32 @@ const Index = () => {
       {/* SUBSCRIBE */}
       <section className="py-16 px-6 border-t border-white/10">
         <div className="max-w-md mx-auto text-center">
-          <h2 className="text-2xl font-light text-white mb-2">Скидка 10% за подписку</h2>
-          <p className="text-xs text-white/40 mb-6">Никакого спама, только распродажи</p>
+          <h2 className="text-2xl font-light text-white mb-6">Получите скидку 10% на первый заказ</h2>
           {subscribed ? (
-            <div className="rounded-2xl bg-orange-500/15 border border-orange-500/40 px-6 py-5">
-              <div className="text-3xl mb-2">🎉</div>
-              <p className="text-orange-300 font-semibold text-lg mb-1">Вы выиграли скидку 10%!</p>
-              <p className="text-white/60 text-sm">Промокод отправлен на <span className="text-white">{email}</span>. Используйте его при следующем заказе.</p>
+            <div className="rounded-2xl bg-orange-500/15 border border-orange-500/40 px-6 py-6">
+              <div className="text-3xl mb-3">🎉</div>
+              <p className="text-white font-semibold text-lg mb-2">Ваш промокод на скидку 10%:</p>
+              <div className="inline-block bg-orange-700/60 border border-orange-500/50 rounded-xl px-6 py-3 mb-3">
+                <span className="text-2xl font-bold tracking-widest text-orange-200">PAW10</span>
+              </div>
+              <p className="text-white/60 text-sm">Скопируйте его и используйте при оформлении заказа.</p>
             </div>
           ) : (
-            <div className="flex gap-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
-                placeholder="Ваш e-mail"
-                className="flex-1 px-4 py-3 rounded-full bg-white/10 border border-white/20 text-white text-sm placeholder:text-white/40 outline-none focus:border-orange-500/50 transition-colors"
-              />
-              <button onClick={handleSubscribe} className="px-6 py-3 rounded-full bg-orange-700 hover:bg-orange-600 text-white text-sm transition-all duration-200 cursor-pointer whitespace-nowrap">
-                Забрать скидку
-              </button>
+            <div className="flex flex-col gap-3">
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
+                  placeholder="Ваш Gmail или email"
+                  className="flex-1 px-4 py-3 rounded-full bg-white/10 border border-white/20 text-white text-sm placeholder:text-white/40 outline-none focus:border-orange-500/50 transition-colors"
+                />
+                <button onClick={handleSubscribe} className="px-6 py-3 rounded-full bg-orange-700 hover:bg-orange-600 text-white text-sm transition-all duration-200 cursor-pointer whitespace-nowrap">
+                  Получить скидку 10%
+                </button>
+              </div>
+              <p className="text-xs text-white/30">Введите email и нажмите на кнопку. Промокод придёт на почту.</p>
             </div>
           )}
         </div>
