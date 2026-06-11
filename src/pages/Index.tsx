@@ -4,54 +4,35 @@ import PulsingCircle from "@/components/PulsingCircle"
 import Header from "@/components/Header"
 import Icon from "@/components/ui/icon"
 
-const products = [
+const catalog = [
   {
-    id: 1,
-    name: "Свитер с оленем",
-    desc: "Для собак от 3 до 10 кг, флис + хлопок",
-    price: "1 290 ₽",
-    sizes: ["XS", "S", "M", "L"],
-    img: "https://cdn.poehali.dev/projects/8a95221e-7e56-4cc1-9a6b-7b2f6f41d9c5/files/f27fff30-b4b5-4fbc-a9dd-0daab77a1d2e.jpg",
+    category: "Зимняя одежда",
+    items: [
+      { id: 1, name: "Свитер с оленем", desc: "Для собак от 3 до 10 кг, флис + хлопок", price: "1 290 ₽", sizes: ["XS", "S", "M", "L"], img: "https://cdn.poehali.dev/projects/8a95221e-7e56-4cc1-9a6b-7b2f6f41d9c5/files/f27fff30-b4b5-4fbc-a9dd-0daab77a1d2e.jpg" },
+      { id: 2, name: "Комбинезон непромокаемый", desc: "Защита от дождя и слякоти", price: "2 190 ₽", sizes: ["XS", "S", "M", "L"], img: "https://cdn.poehali.dev/projects/8a95221e-7e56-4cc1-9a6b-7b2f6f41d9c5/files/fb4a7384-0410-43e9-a64b-25445edda538.jpg" },
+      { id: 3, name: "Пижама для кошек", desc: "Мягкий флис, лапки открыты", price: "1 090 ₽", sizes: ["XS", "S", "M", "L"], img: "https://cdn.poehali.dev/projects/8a95221e-7e56-4cc1-9a6b-7b2f6f41d9c5/files/f7b297e3-17cb-4a92-91ae-34d615600a4a.jpg" },
+    ],
   },
   {
-    id: 2,
-    name: "Комбинезон непромокаемый",
-    desc: "Защита от дождя и слякоти",
-    price: "2 190 ₽",
-    sizes: ["XS", "S", "M", "L"],
-    img: "https://cdn.poehali.dev/projects/8a95221e-7e56-4cc1-9a6b-7b2f6f41d9c5/files/fb4a7384-0410-43e9-a64b-25445edda538.jpg",
+    category: "Летняя одежда",
+    items: [
+      { id: 4, name: "Футболка «Суперпёс»", desc: "100% хлопок", price: "690 ₽", sizes: ["XS", "S", "M", "L"], img: "https://cdn.poehali.dev/projects/8a95221e-7e56-4cc1-9a6b-7b2f6f41d9c5/files/f27fff30-b4b5-4fbc-a9dd-0daab77a1d2e.jpg" },
+      { id: 5, name: "Лёгкая майка с рыбкой", desc: "Хлопок, для жары", price: "590 ₽", sizes: ["XS", "S", "M", "L"], img: "https://cdn.poehali.dev/projects/8a95221e-7e56-4cc1-9a6b-7b2f6f41d9c5/files/25743f9d-bca4-40bd-8f74-d2c8f6684f48.jpg" },
+    ],
   },
   {
-    id: 3,
-    name: "Дождевик с капюшоном",
-    desc: "Лёгкий и компактный",
-    price: "890 ₽",
-    sizes: ["XS", "S", "M", "L"],
-    img: "https://cdn.poehali.dev/projects/8a95221e-7e56-4cc1-9a6b-7b2f6f41d9c5/files/fb4a7384-0410-43e9-a64b-25445edda538.jpg",
+    category: "Шапочки",
+    items: [
+      { id: 6, name: "Шапка-ушанка для собак", desc: "Флис, завязки под подбородок", price: "450 ₽", sizes: ["XS", "S", "M", "L"], img: "https://cdn.poehali.dev/projects/8a95221e-7e56-4cc1-9a6b-7b2f6f41d9c5/files/80ac268f-a42f-47c5-8609-1a5333808f81.jpg" },
+      { id: 7, name: "Бандана летняя", desc: "Хлопок, три расцветки", price: "350 ₽", sizes: ["универсальная"], img: "https://cdn.poehali.dev/projects/8a95221e-7e56-4cc1-9a6b-7b2f6f41d9c5/files/7a942f29-1a0a-4792-a2e6-6a7c256e3f7c.jpg" },
+    ],
   },
   {
-    id: 4,
-    name: "Ботиночки зимние (4 шт)",
-    desc: "Не скользят, греют лапы",
-    price: "1 490 ₽",
-    sizes: ["XS", "S", "M", "L"],
-    img: "https://cdn.poehali.dev/projects/8a95221e-7e56-4cc1-9a6b-7b2f6f41d9c5/files/7bb0e802-59d1-4129-8f00-33cce747de57.jpg",
-  },
-  {
-    id: 5,
-    name: 'Футболка «Суперпёс»',
-    desc: "100% хлопок",
-    price: "690 ₽",
-    sizes: ["XS", "S", "M", "L"],
-    img: "https://cdn.poehali.dev/projects/8a95221e-7e56-4cc1-9a6b-7b2f6f41d9c5/files/f27fff30-b4b5-4fbc-a9dd-0daab77a1d2e.jpg",
-  },
-  {
-    id: 6,
-    name: "Пижама для кошек",
-    desc: "Мягкий флис, лапки открыты",
-    price: "1 090 ₽",
-    sizes: ["XS", "S", "M", "L"],
-    img: "https://cdn.poehali.dev/projects/8a95221e-7e56-4cc1-9a6b-7b2f6f41d9c5/files/f7b297e3-17cb-4a92-91ae-34d615600a4a.jpg",
+    category: "Обувь",
+    items: [
+      { id: 8, name: "Ботиночки зимние (4 шт)", desc: "Не скользят, греют лапы", price: "1 490 ₽", sizes: ["XS", "S", "M", "L"], img: "https://cdn.poehali.dev/projects/8a95221e-7e56-4cc1-9a6b-7b2f6f41d9c5/files/7bb0e802-59d1-4129-8f00-33cce747de57.jpg" },
+      { id: 9, name: "Резиновые ботиночки для слякоти (4 шт)", desc: "Защита от воды и грязи", price: "990 ₽", sizes: ["XS", "S", "M", "L"], img: "https://cdn.poehali.dev/projects/8a95221e-7e56-4cc1-9a6b-7b2f6f41d9c5/files/f1699d2f-2123-4675-aa5a-3d8e8c3a0f85.jpg" },
+    ],
   },
 ]
 
@@ -104,27 +85,34 @@ const Index = () => {
       {/* CATALOG */}
       <section id="catalog" className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-light text-white mb-10 text-center">Каталог</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((p) => (
-              <div key={p.id} className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden hover:border-orange-500/40 transition-all duration-300 group">
-                <div className="aspect-square overflow-hidden bg-white/5">
-                  <img src={p.img} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-white mb-1">{p.name}</h3>
-                  <p className="text-xs text-white/50 mb-3">{p.desc}</p>
-                  <div className="flex gap-1 mb-4">
-                    {p.sizes.map((s) => (
-                      <span key={s} className="text-xs px-2 py-0.5 rounded border border-white/20 text-white/60">{s}</span>
-                    ))}
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-lg font-semibold text-orange-400">{p.price}</span>
-                    <button className="px-4 py-2 rounded-full bg-orange-700/80 hover:bg-orange-600 text-white text-xs transition-all duration-200 cursor-pointer">
-                      В корзину
-                    </button>
-                  </div>
+          <h2 className="text-3xl font-light text-white mb-12 text-center">Каталог</h2>
+          <div className="flex flex-col gap-14">
+            {catalog.map((group) => (
+              <div key={group.category}>
+                <h3 className="text-lg font-medium text-orange-400 mb-6 pb-2 border-b border-orange-500/20">{group.category}</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {group.items.map((p) => (
+                    <div key={p.id} className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden hover:border-orange-500/40 transition-all duration-300 group">
+                      <div className="aspect-square overflow-hidden bg-white/5">
+                        <img src={p.img} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      </div>
+                      <div className="p-4">
+                        <h4 className="font-semibold text-white mb-1">{p.name}</h4>
+                        <p className="text-xs text-white/50 mb-3">{p.desc}</p>
+                        <div className="flex flex-wrap gap-1 mb-4">
+                          {p.sizes.map((s) => (
+                            <span key={s} className="text-xs px-2 py-0.5 rounded border border-white/20 text-white/60">{s}</span>
+                          ))}
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-lg font-semibold text-orange-400">{p.price}</span>
+                          <button className="px-4 py-2 rounded-full bg-orange-700/80 hover:bg-orange-600 text-white text-xs transition-all duration-200 cursor-pointer">
+                            В корзину
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
